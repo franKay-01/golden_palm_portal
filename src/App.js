@@ -1,23 +1,27 @@
 import React from 'react';
-import {Route, Routes} from 'react-router-dom';
-
+import { Route, Routes } from 'react-router-dom';
+import { ProtectedRoute } from './routes'
 const HomePage = React.lazy(()=> import('./pages/home')); 
-const CareerPage = React.lazy(()=> import('./pages/career'));
-const ReferralPage = React.lazy(()=> import('./pages/referral')); 
-const AirDropPage = React.lazy(()=> import('./pages/airdrop'));
-const BlogPage = React.lazy(()=> import('./pages/blog'));
-const ArticlePage = React.lazy(()=>import('./pages/blogArticle'));
+const ProductPage = React.lazy(()=> import('./pages/products'));
+const CreateProductPage = React.lazy(()=> import('./pages/createProduct')); 
+const EditProductPage = React.lazy(()=> import('./pages/editProduct')); 
+const UsersPage = React.lazy(()=>import('./pages/users'));
+const LoginPage = React.lazy(()=> import('./pages/login'))
 
 const App = () => {
   return (
     <React.Suspense>
       <Routes>
-        <Route path='/' element={<HomePage/>}></Route>
-        <Route path='/blog' element={<BlogPage/>}></Route>
-        <Route path='/career' element={<CareerPage/>}></Route>
-        <Route path='/airdrop' element={<AirDropPage/>}></Route>
-        <Route path='/article' element={<ArticlePage/>}></Route>
-        <Route path='/referral' element={<ReferralPage/>}></Route>
+        <Route element={<ProtectedRoute/>}>
+          <Route path='/' element={<HomePage/>}></Route>
+          <Route path='/products' element={<ProductPage/>}></Route>
+          <Route path='/create-product-page' element={<CreateProductPage/>}></Route>
+          <Route path='/edit-product-page' element={<EditProductPage/>}></Route>
+          <Route path='/users' element={<UsersPage/>}></Route>
+          {/* <Route path='/referral' element={<ReferralPage/>}></Route> */}
+        </Route>
+        <Route path='/login' element={<LoginPage/>}></Route>
+
       </Routes>
     </React.Suspense>
   );

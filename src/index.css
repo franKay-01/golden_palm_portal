@@ -17,6 +17,18 @@ body{
   @apply m-auto max-w-screen-xl p-4
 }
 
+.spinner-position-alt{
+  margin: auto !important;
+}
+
+.spinner-position{
+  margin: 10rem auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .close-button{
   position: absolute;
   right: 1rem;
@@ -52,7 +64,7 @@ div.nav-card {
 }
 
 .nav-bar-text-alt{
-  color: #00B9C2 !important;
+  color: #fff !important;
   font-weight: 500 !important;
 }
 
@@ -112,23 +124,8 @@ div.nav-card {
 }
 
 .nav-bg-custom{
-  background-color: #fff;
+  background-color: #FCB040;
   z-index: 999;
-}
-
-.vid-bg{
-  background-image: url("assets/Assets/Home/SnowballHero.mp4");
-}
-
-.video-container {
-  /* position: absolute;
-  top: 9rem;
-  left: 35rem;
-  width: 59rem; */
-  position: absolute;
-  top: 0rem;
-  left: 24rem;
-  width: 70rem;
 }
 
 .z-id{
@@ -142,25 +139,6 @@ div.nav-card {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.share-earn-banner-alt{
-  background-image: url("assets/referral-share-earn.png");
-  background-size: cover;
-  background-repeat: round;
-  border-radius: 2rem;
-}
-
-.share-earn-banner {
-  justify-content: center;
-  align-items: center;
-  /* height: 30rem; */
-  flex-shrink: 0;
-  border-radius: 2rem;
-  /* width: auto; */
-  border-radius: 32px;
-  background: linear-gradient(179deg, rgba(19, 91, 92, 0.64) 0%, rgba(74, 145, 152, 0.00) 100%), url("assets/referral-share-earn.png"), lightgray -8px -132px / 100.87% 217.5% no-repeat;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .faq-position{
@@ -317,9 +295,14 @@ div.nav-card {
   box-shadow: 0px 8px 40px 0px rgba(225, 230, 236, 0.40);
 }
 
+.pagination{
+  display: flex !important;
+  gap: 10px !important;
+}
+
 .banner-card{
-  width: 400px;
-  height: 260px;
+  /* width: 400px; */
+  /* height: 260px; */
   background-color: #F9FBFC;
   border-radius: 15px;
   padding: 1.5rem;
@@ -328,6 +311,107 @@ div.nav-card {
 .banner-card-icon{
   width: 64px;
   height: 64px;
+}
+
+.table-heading-alt{
+  color: #1B1E26 !important;
+}
+
+.table-heading{
+  text-decoration: underline;
+  color: #fcb040;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 40px;
+}
+
+.banner-card-heading-alt{
+  width: auto !important;
+}
+
+.dialog-box-shadow-alt{
+  height: auto !important
+}
+
+.dialog-box-shadow-alt-2{
+  width: 75% !important;
+}
+
+.dialog-box-shadow-alt-3{
+  width: 45rem !important;
+}
+
+.dialog-box-shadow{
+  width: 35rem;
+  height: 10rem;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.101961);
+}
+
+.img-container {
+  max-width: 960px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.avatar-upload {
+  position: relative;
+  /* width: 770px; */
+}
+
+.avatar-upload .avatar-edit {
+  position: absolute;
+  right: 45px;
+  z-index: 1;
+  bottom: -30px;
+}
+.avatar-upload .avatar-edit input {
+  display: none;
+}
+.avatar-upload .avatar-edit input + label {
+  display: inline-block;
+  width: 65px;
+  height: 65px;
+  margin-bottom: 0;
+  border-radius: 100%;
+  background: #FFFFFF;
+  border: 1px solid transparent;
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.12);
+  cursor: pointer;
+  font-weight: normal;
+  transition: all .2s ease-in-out;
+}
+.avatar-upload .avatar-edit input + label:hover {
+  background: #f1f1f1;
+  border-color: #d6d6d6;
+}
+
+.background-pattern{
+  background-image: url('./assets/new/background_pattern.png');
+  background-color: #000;
+}
+
+.avatar-upload .avatar-edit input + label:after {
+  content: url('./assets/new/img.png');
+  color: #757575;
+  position: absolute;
+  top: 16px;
+  left: 3px;
+  right: 0;
+  text-align: center;
+  margin: auto;
+}
+.avatar-upload .avatar-preview {
+  /* width: 770px; */
+  height: 433px;
+  position: relative;
+}
+.avatar-upload .avatar-preview > div {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .banner-card-heading{
@@ -365,17 +449,6 @@ div.nav-card {
   font-weight: 500;
   line-height: 2.25rem;
   width: 14.25rem;
-}
-
-.d-bg{
-  background-image: url('./assets/most_popular_network.png');
-  background-size: contain;
-  background-size: contain;
-  height: 480px;
-  padding: 4rem;
-  margin-top: 5rem ;
-  width: 100%;
-  background-repeat: no-repeat;
 }
 
 .popular-network-text-header{
@@ -629,24 +702,6 @@ div.nav-card {
   border-radius: 1.5rem;
 }
 
-.snowball-media-1{
-  background: url('./assets/Assets/Home/News/SnowballPodcast.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.snowball-media-2{
-  background: url('./assets/Assets/Home/News/Snowball_Automating_Cryptocurrency_Investing.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.snowball-media-3{
-  background: url('./assets/Assets/Home/News/Republic_Invest_in_Snowball_Money.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
 .snowball-media-sm{
   width: 21.5625rem;
   height: 21.5625rem;
@@ -827,20 +882,14 @@ div.nav-card {
   line-height: 3.75rem;
 }
 
-.snowball-frame-1{
-  height: 36.25rem;
-  width: 100%;
-  background: url('./assets/frame_1.png');
-  background-size: cover;
-  background-repeat: no-repeat;
+.red-label{
+  color: red;
 }
 
-.snowball-frame-2{
-  height: 36.25rem;
-  background: url('./assets/frame_2.png');
-  background-size: cover;
-  background-repeat: no-repeat;
+.green-label{
+  color: #079a6b;
 }
+
 
 .snowball-frame-h{
   height: 56rem;
@@ -867,6 +916,10 @@ div.nav-card {
   line-height: 1.25rem;
 }
 
+.product-p{
+  padding: 2rem 10rem;
+}
+
 .brand-input-box{
   width: 34.125rem;
   height: 3rem;
@@ -875,7 +928,7 @@ div.nav-card {
   align-items: center;
   gap: 0.625rem;
   border-radius: 0.625rem;
-  background: #F5F8FA;
+  background: #fff;
 }
 
 .brand-input-box-alt{
@@ -892,6 +945,11 @@ div.nav-card {
   height: inherit;
 }
 
+.product-border{
+  border: 1px solid;
+  border-radius: 1rem;
+}
+
 .main-input-box:focus{
   outline: none !important;
 }
@@ -906,14 +964,14 @@ div.nav-card {
 
 .brand-button{
   display: flex;
-  width: 34.125rem;
+  /* width: 34.125rem; */
   height: 3.5rem;
   padding: 1.00963rem 4.47706rem;
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
   border-radius: 1rem;
-  background: linear-gradient(49deg, #2DDCBD 0%, #00B9C2 100%);
+  background: linear-gradient(49deg, #fcb042 0%, #000 100%);
 }
 
 .brand-button-text{
@@ -924,15 +982,6 @@ div.nav-card {
   font-weight: 700;
   line-height: 1.375rem;
   text-transform: uppercase;
-}
-
-.brand-card{
-  background-image: url('./assets/brand_card.png');
-  display: grid;
-  justify-content: center;
-  width: 36.25rem;
-  position: relative;
-  height: 38.625rem;
 }
 
 .brand-card-button{
@@ -984,16 +1033,6 @@ div.nav-card {
 
 .home-order-learn{
   order: 3;
-}
-
-.career-section{
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  background-image: url('./assets/Assets/Career/Career.png');
-  border-radius: 2rem;
-  background-size: contain;
-  background-repeat: round;
 }
 
 .article-return-button{
@@ -1123,6 +1162,10 @@ div.nav-card {
   color: #838B9D
 }
 
+.cursor-color{
+  color: #fff;
+}
+
 .blog-text-box{
   padding: 0.5rem;
   display: flex;
@@ -1145,27 +1188,6 @@ div.nav-card {
 .post-item-bg{
   background: #F9FBFC;
   border-radius: 2rem;
-}
-
-.blog-section{
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
-  background-image: url('./assets/blog_image.png');
-  border-radius: 2rem;
-  background-size: auto;
-  background-repeat: round;
-}
-
-.airdrop-frame{
-  /* height: 55rem; */
-  background-image: url('./assets/frame_4.png') !important;
-}
-
-.airdrop-section{
-  background-image: url('./assets/Assets/Airdrop/Airdrop_Hero_Image.png') !important;
-  background-size: contain;
-  background-repeat: round;
 }
 
 .airdrop-icon-img{
@@ -1768,16 +1790,6 @@ div.nav-card {
     width: 14.5rem;
   }  
 
-  .d-bg{
-    background-image: url('./assets/airdrop_alt.png');
-    background-size: contain;
-    background-size: contain;
-    height: 21rem;
-    margin-top: 2rem ;
-    width: 100%;
-    background-repeat: no-repeat;
-  }
-
   .most-popular-card{
     width: 21rem;
     height: 21rem;
@@ -1961,15 +1973,6 @@ div.nav-card {
     padding-left: 1rem
   }
 
-  .brand-card{
-    background-image: url('./assets/brand_card_alt.png');
-    display: grid;
-    justify-content: center;
-    width: 21.5625rem;
-    height: 32.4375rem;
-    position: relative;
-  }
-  
   .brand-card-button{
     position: absolute;
     left: 50%;

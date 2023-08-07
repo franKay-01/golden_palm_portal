@@ -1,4 +1,4 @@
-import Logo from '../assets/logo.png'
+import Logo from '../assets/new/logo.png'
 // import FacebookLogo from '../assets/facebook.png'
 // import InstagramLogo from '../assets/instagram.png'
 // import TelegramLogo from '../assets/telegram.png'
