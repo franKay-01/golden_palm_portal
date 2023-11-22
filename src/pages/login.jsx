@@ -38,7 +38,7 @@ export default function Login(){
 
     const {response_code, admin_name, token} = await adminLogin(params);
 
-    if (response_code === "000"){
+    if (response_code === 200){
       
       Cookies.set("username", admin_name);
       Cookies.set("utk", token);

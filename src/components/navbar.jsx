@@ -9,7 +9,6 @@ import { useEffect, useState } from 'react'
 const navigation = [
   { name: 'Home', href: '/', current: false },
   { name: 'Users', href: '/users', current: false },
-  { name: 'Orders', href: '/orders', current: false },
   { name: 'Products', href: '/products', current: false }
 ]
 
@@ -99,7 +98,6 @@ export default function Navbar() {
                   <div className="flex space-x-4 nav-card">
                     <NavLink className={`${homeUrl ? 'nav-bar-text-alt': ''} block px-3 py-2 nav-bar-text`} exact to="/">Home</NavLink>
                     <NavLink className={`${usersUrl ? 'nav-bar-text-alt': ''} block px-3 py-2 nav-bar-text`} exact to="/users">Users</NavLink>
-                    <NavLink className={`${ordersUrl ? 'nav-bar-text-alt': ''} block px-3 py-2 nav-bar-text`} exact to="/referral">Orders</NavLink>
                     <NavLink className={`${productsUrl ? 'nav-bar-text-alt': ''} block px-3 py-2 nav-bar-text`} exact to="/products">Products</NavLink>
                   </div>                  
                 </div>

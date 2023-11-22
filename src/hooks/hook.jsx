@@ -6,11 +6,12 @@ const useAxios = () => {
   const [error, setError] = useState(null)
   const [isPending, setIsPending] = useState(false)
 
+  const token = localStorage.getItem("utk")
   /*
   Execute Req
   */
 
-  const executeGet = async (route, token = "") => {
+  const executeGet = async (route) => {
     try {
       const res = await axios.get(`${BASE_URL}/${route}`, { headers: {
         'Content-Type': 'application/json',
@@ -23,7 +24,7 @@ const useAxios = () => {
     }
   }
 
-  const executeReq = async (route, body, token = "") => {
+  const executeReq = async (route, body) => {
     setIsPending(true)
 
     try {

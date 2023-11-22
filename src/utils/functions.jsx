@@ -15,6 +15,15 @@ const useFunctions = () => {
       return {response_code: '001'}
     }
   }
+
+  const adminCreateShippingRate = async (params) => {
+    try{
+      const { data } = await executeReq('common/shipping-rates', params)
+      return {response_code: data.response_code, response_message: data.response_message}
+    }catch{
+      return {response_code: '001'}
+    }
+  }
   
   const getUsersInfo = async () => {
     try{
@@ -89,7 +98,8 @@ const useFunctions = () => {
   }
 
   return { adminLogin, getHomeData, getProductInfo, adminCreateCategory, adminCreateProduct, 
-    adminEditProduct, adminChangeProductStatus, getUsersInfo, adminChangeUserStatus }
+    adminEditProduct, adminChangeProductStatus, getUsersInfo, adminChangeUserStatus, adminCreateShippingRate
+  }
 }
 
 export default useFunctions

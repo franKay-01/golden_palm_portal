@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Home(){
   const navigate = useNavigate();
-
+  const [form, setForm] = useState({price: '', percentage: ''})
   const [products, setProducts] = useState([])
   const [categories, setCategories] = useState([])
 
@@ -19,10 +19,12 @@ export default function Home(){
   const [categoryName, setCategoryName] = useState('')
 
   const [isCategoryOpen, setIsCategoryOpen] = useState(false)
-  const [isProductOpen, setIsProductOpen] = useState(false)
+  const [isShippingRateOpen, setIsShippingRateOpen] = useState(false)
 
-  const { getProductInfo, adminCreateCategory, adminChangeProductStatus } = useFunctions();
+  const { getProductInfo, adminCreateCategory, adminChangeProductStatus, adminCreateShippingRate } = useFunctions();
   const { getDateString, getElemenetStatus } = useExtraUtil();
+
+  const handleChange = (e) => { setForm({...form,[e.target.name]: e.target.value}) }
 
   const PER_PAGE = 10;
   const offset = currentPage * PER_PAGE;
@@ -59,6 +61,24 @@ export default function Home(){
       setIsLoading(false)
     }else{
       ShowToast('error', "Error retrieving data")
+      setIsLoading(false)
+    }
+  }
+
+  const submitShippingRecord = async () => {
+    if (form.price === "" || form.percentage === ""){
+      ShowToast("success", "All fields are required")
+      return
+    }
+
+    const {response_code, response_message} = await adminCreateShippingRate(form)
+    if (response_code === 200){
+      ShowToast("success", response_message)
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    }else{
+      ShowToast("error", response_message)
       setIsLoading(false)
     }
   }
@@ -154,7 +174,24 @@ export default function Home(){
       <Navbar/>
 
       <div className="container overflow-auto">
-        <div className="grid grid-cols-2 gap-4 mt-12 p-2">
+        <div className="grid grid-cols-3 gap-4 mt-12 p-2">
+          <div className="banner-card flex flex-col">
+            { isLoading ? 
+              <span className="spinner-position spinner-position-alt">
+                <div class="w-6 h-6 rounded-full animate-spin
+                  border border-solid border-white border-t-transparent"></div>
+              </span>
+              :
+              <h1 className="banner-card-heading">#1</h1>
+            }
+            
+            <div className="flex justify-between">
+              <h1 className="banner-card-heading banner-card-heading-alt">Rate/Percentage</h1> 
+              <svg onClick={() => setIsShippingRateOpen(true)} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-9 h-8 cursor-pointer">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 10.5v6m3-3H9m4.06-7.19l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
+              </svg>
+            </div>
+          </div>
           <div className="banner-card flex flex-col">
             { isLoading ? 
               <span className="spinner-position spinner-position-alt">
@@ -251,6 +288,55 @@ export default function Home(){
                   <div className='flex flex-row space-x-4 justify-center mb-8 mt-8'>
                  
                     <button onClick={submitCategoryRecord} className="brand-button cursor-pointer">
+                      { isLoading ? 
+                        <span className="spinner-position spinner-position-alt">
+                          <div class="w-6 h-6 rounded-full animate-spin
+                            border border-solid border-yellow-500 border-t-transparent"></div>
+                        </span>
+                        :
+                        <span className="brand-button-text">Submit Record</span>
+                      }
+                    </button>
+                  </div>
+                </>
+              </Dialog.Panel>
+            </Dialog.Panel>
+          </div>
+      </Dialog>
+      <Dialog
+        open={isShippingRateOpen}
+        onClose={() => setIsShippingRateOpen(false)}
+        className="relative z-50"
+        >
+          {/* The backdrop, rendered as a fixed sibling to the panel container */}
+          <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
+
+          {/* Full-screen container to center the panel */}
+          <div className="fixed inset-0 flex items-center justify-center p-8">
+            {/* The actual dialog panel  */}
+            <Dialog.Panel className="mx-auto rounded bg-white dialog-box-shadow dialog-box-shadow-alt">
+              <Dialog.Panel>
+                <Dialog.Title className='header-alt mt-8 text-center mb-4'>Shipping Rate Creation</Dialog.Title>
+                <hr className="mb-4"></hr>
+                <>
+                  <div className="grid grid-cols-1 gap-y-6 gap-x-8 justify-center text-center login-text-position">
+                    <div className="mt-2.5 p-8">
+                      {/* <div className="input-wrapper"> */}
+                      <div className="brand-input-box brand-input-box-alt flex flex-row">
+                        <input className='main-input-box' onChange={handleChange} name="price" value={form.price} placeholder="Shipping Start Cost *"/>
+                      </div>
+                      <div className="brand-input-box brand-input-box-alt flex flex-row mt-4">
+                        <input className='main-input-box' onChange={handleChange} name="percentage" value={form.percentage} placeholder="Percentage Rate *"/>
+                      </div>
+                        {/* <label htmlFor="role" className='input-label'>Name</label>
+                        <input type="text" name='role' onChange={changeCategoryName} value={categoryName} className='input-text input-text-alt'/>
+                      </div> */}
+                    </div>
+                  </div>
+                    
+                  <div className='flex flex-row space-x-4 justify-center mb-8 mt-8'>
+                 
+                    <button onClick={submitShippingRecord} className="brand-button cursor-pointer">
                       { isLoading ? 
                         <span className="spinner-position spinner-position-alt">
                           <div class="w-6 h-6 rounded-full animate-spin

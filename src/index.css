@@ -601,7 +601,7 @@ div.nav-card {
 .header-alt{
   color: #282D39;
   font-size: 3rem;
-  width: 28rem;
+  /* width: 28rem; */
   font-style: normal;
   font-weight: 500;
   line-height: 3.5rem;
@@ -940,9 +940,12 @@ div.nav-card {
 }
 
 .main-input-box{
-  background: transparent;
+  background: black;
+  color: white;
   width: 100%;
   height: inherit;
+  border-radius: 0.5rem;
+  padding: 1rem;
 }
 
 .product-border{
